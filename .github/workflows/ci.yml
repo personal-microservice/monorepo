@@ -25,4 +25,11 @@ jobs:
       - run: npx nx affected -t test --parallel=3 --configuration=ci
       - run: npx nx affected -t build --parallel=3
 
+  coverage_monolith:
+    needs: main
+    name: coverage:monolith
+    runs-on: ubuntu-latest
+    steps:
       - uses: codecov/codecov-action@v3
+        with:
+          flags: monolith
