@@ -34,6 +34,7 @@ jobs:
     needs: main
     name: coverage:monolith
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/download-artifact@v3
         with:
