@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project: off
+    patch: off
+
+flags:
+  monolith:
+    paths:
+      - packages/monolith/
