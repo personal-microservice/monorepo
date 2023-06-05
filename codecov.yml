@@ -6,4 +6,4 @@ coverage:
 flags:
   monolith:
     paths:
-      - monolith/
+      - coverage/packages/monolith/
