@@ -22,23 +22,24 @@ jobs:
 
       - run: npx nx format:check
       - run: npx nx affected -t lint --parallel=3
-      - run: npx nx affected -t test --parallel=3 --configuration=ci
+      - run: npx nx run-many -t test --parallel=3 --configuration=ci
       - run: npx nx affected -t build --parallel=3
-
       - uses: actions/upload-artifact@v3
         with:
           name: coverage
           path: coverage
+          retention-days: 1
 
   coverage_monolith:
     needs: main
     name: coverage:monolith
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
         with:
           name: coverage
+          path: coverage
       - uses: codecov/codecov-action@v3
         with:
           flags: monolith
