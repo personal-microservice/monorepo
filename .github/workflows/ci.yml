@@ -29,6 +29,7 @@ jobs:
         with:
           name: coverage
           path: coverage
+          retention-days: 1
 
   coverage_monolith:
     needs: main
@@ -38,6 +39,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: coverage
+          path: coverage
       - uses: codecov/codecov-action@v3
         with:
           flags: monolith

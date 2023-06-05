@@ -1,4 +1,4 @@
 flags:
   monolith:
     paths:
-      - packages/monolith/
+      - packages/monolith
