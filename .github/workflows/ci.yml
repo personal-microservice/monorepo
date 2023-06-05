@@ -48,7 +48,7 @@ jobs:
 
   coverage_nest-auth:
     needs: main
-    name: coverage:monolith
+    name: coverage:nest-auth
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
