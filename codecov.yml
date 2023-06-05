@@ -1,3 +1,10 @@
+coverage:
+  status:
+    project:
+      monolith:
+        flags:
+          - monolith
+
 flags:
   monolith:
     paths:
