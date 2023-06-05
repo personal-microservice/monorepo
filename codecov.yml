@@ -14,7 +14,7 @@ comment:
 flags:
   monolith:
     paths:
-      - coverage/packages/monolith
+      - packages/monolith
   nest-auth:
     paths:
-      - coverage/packages/nest-auth
+      - packages/nest-auth

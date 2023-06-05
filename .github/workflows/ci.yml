@@ -44,7 +44,7 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           flags: monolith
-          directory: coverage/monolith
+          directory: coverage/packages/monolith
 
   coverage_nest-auth:
     needs: main
@@ -59,4 +59,4 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           flags: nest-auth
-          directory: coverage/nest-auth
+          directory: coverage/packages//nest-auth
