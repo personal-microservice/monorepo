@@ -15,3 +15,6 @@ flags:
   monolith:
     paths:
       - packages/monolith
+  nest-auth:
+    paths:
+      - packages/nest-auth
