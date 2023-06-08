@@ -45,18 +45,3 @@ jobs:
         with:
           flags: monolith
           directory: coverage/packages/monolith
-
-  coverage_nest-auth:
-    needs: main
-    name: coverage:nest-auth
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
-        with:
-          name: coverage
-          path: coverage
-      - uses: codecov/codecov-action@v3
-        with:
-          flags: nest-auth
-          directory: coverage/packages/nest-auth
