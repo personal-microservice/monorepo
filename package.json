@@ -13,7 +13,7 @@
     "@nx/linter": "16.4.0-beta.1",
     "@nx/nest": "^16.4.0-beta.1",
     "@nx/node": "16.4.0-beta.1",
-    "@nx/webpack": "16.4.0-beta.1",
+    "@nx/webpack": "16.4.0-beta.5",
     "@types/jest": "^29.4.0",
     "@types/node": "~18.16.0",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
