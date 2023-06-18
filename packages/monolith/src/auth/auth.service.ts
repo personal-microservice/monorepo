@@ -22,11 +22,13 @@ export class AuthService {
       throw new BadRequestException('Email is not available');
     }
 
-    await this.prismaService.user.create({
+    const user = await this.prismaService.user.create({
       data: {
         ...body,
         password: bcrypt.hashSync(body.password, 10),
       },
     });
+
+    return user;
   }
 }
