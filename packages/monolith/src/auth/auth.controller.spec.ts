@@ -22,6 +22,26 @@ describe('AuthController', () => {
     controller = module.get<AuthController>(AuthController);
   });
 
+  describe('register', () => {
+    it('should call register service', async () => {
+      const registerSpy = jest.spyOn(controller['authService'], 'register');
+
+      await controller.register({
+        email: 'email',
+        password: 'password',
+        firstName: 'firstName',
+        lastName: 'lastName',
+      });
+
+      expect(registerSpy).toBeCalledWith({
+        email: 'email',
+        password: 'password',
+        firstName: 'firstName',
+        lastName: 'lastName',
+      });
+    });
+  });
+
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
