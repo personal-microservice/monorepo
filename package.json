@@ -14,6 +14,8 @@
     "@nx/nest": "^16.4.0-beta.1",
     "@nx/node": "16.4.0-beta.1",
     "@nx/webpack": "16.4.0-beta.1",
+    "@prisma/client": "^4.15.0",
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "^29.4.0",
     "@types/node": "~18.16.0",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -25,6 +27,7 @@
     "nx": "16.3.2",
     "nx-cloud": "latest",
     "prettier": "^2.6.2",
+    "prisma": "^4.15.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.1.0"
@@ -38,6 +41,9 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.1.1",
     "axios": "^1.0.0",
+    "bcrypt": "^5.1.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0"
