@@ -12,3 +12,8 @@ export class LoginDto {
   @ApiProperty({ minLength: 8, maxLength: 32 })
   password: string;
 }
+
+export class LoginSuccessDto {
+  @ApiProperty({ description: 'JWT token will expire in 15 minutes' })
+  accessToken: string;
+}
