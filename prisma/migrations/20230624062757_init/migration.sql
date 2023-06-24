@@ -1,9 +1,10 @@
 -- CreateEnum
-CREATE TYPE "SecretType" AS ENUM ('PUBLIC', 'PRIVATE');
+CREATE TYPE "SecretType" AS ENUM ('LOGIN', 'FORGOT_PASSWORD');
 
 -- CreateTable
 CREATE TABLE "Secret" (
     "id" SERIAL NOT NULL,
+    "type" "SecretType" NOT NULL,
     "secret" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
