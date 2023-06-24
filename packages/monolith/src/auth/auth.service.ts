@@ -45,6 +45,7 @@ export class AuthService {
     return {
       accessToken: await this.jwtService.signAsync(payload, {
         secret: secret?.secret,
+        expiresIn: '15 mins',
       }),
     };
   }

@@ -97,7 +97,7 @@ describe('AuthService', () => {
           firstName: 'firstName',
           lastName: 'lastName',
         },
-        { secret: 'secret' }
+        { secret: 'secret', expiresIn: '15 mins' }
       );
     });
   });
