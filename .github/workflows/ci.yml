@@ -15,7 +15,7 @@ jobs:
     name: main
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
@@ -36,7 +36,7 @@ jobs:
     name: coverage:monolith
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
           name: coverage
