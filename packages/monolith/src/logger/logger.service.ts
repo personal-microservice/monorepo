@@ -37,7 +37,7 @@ export class LoggerService
 
     this.client = new Client({ rest, gateway });
     this.client.once(GatewayDispatchEvents.Ready, () => {
-      console.log('Ready');
+      this.log('Discord bot is ready');
     });
 
     await gateway.connect();
@@ -47,7 +47,23 @@ export class LoggerService
     });
   }
 
+  log(message: any): void {
+    super.log(message);
+
+    const embed = new EmbedBuilder();
+    embed.setColor(0x1d7acb);
+    embed.setTitle('Application log');
+    embed.setDescription(message);
+
+    this.client.api.channels.createMessage(
+      this.configService.get<string>('DISCORD_DEV_CHANNEL_ID') as string,
+      { embeds: [embed.toJSON()] }
+    );
+  }
+
   error(message: any, stack?: string, context?: string): void {
+    super.error(message, stack, context);
+
     const embed = new EmbedBuilder();
     embed.setColor(0xff0000);
     embed.setTitle('Error');
@@ -67,7 +83,7 @@ export class LoggerService
     );
 
     this.client.api.channels.createMessage(
-      this.configService.get<string>('DISCORD_CHANNEL_ID') as string,
+      this.configService.get<string>('DISCORD_DEV_CHANNEL_ID') as string,
       { embeds: [embed.toJSON()] }
     );
   }
