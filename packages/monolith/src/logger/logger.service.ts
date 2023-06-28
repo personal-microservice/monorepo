@@ -52,13 +52,11 @@ export class LoggerService
 
     const embed = new EmbedBuilder();
     embed.setColor(0x1d7acb);
-    embed.setTitle('Application log');
+    embed.setTitle('Info log');
     embed.setDescription(message);
+    embed.setTimestamp();
 
-    this.client.api.channels.createMessage(
-      this.configService.get<string>('DISCORD_DEV_CHANNEL_ID') as string,
-      { embeds: [embed.toJSON()] }
-    );
+    this.sendMessageToDiscord(embed);
   }
 
   error(message: any, stack?: string, context?: string): void {
@@ -66,25 +64,33 @@ export class LoggerService
 
     const embed = new EmbedBuilder();
     embed.setColor(0xff0000);
-    embed.setTitle('Error');
-    embed.addFields(
-      {
-        name: `Message`,
-        value: message,
-      },
-      {
-        name: `Stack`,
-        value: stack ?? '',
-      },
-      {
-        name: `Context`,
-        value: context ?? '',
-      }
-    );
+    embed.setTitle('Error log');
+    embed
+      .addFields(
+        {
+          name: `Message`,
+          value: message,
+        },
+        {
+          name: `Stack`,
+          value: stack ?? '',
+        },
+        {
+          name: `Context`,
+          value: context ?? '',
+        }
+      )
+      .setTimestamp();
 
-    this.client.api.channels.createMessage(
-      this.configService.get<string>('DISCORD_DEV_CHANNEL_ID') as string,
-      { embeds: [embed.toJSON()] }
-    );
+    this.sendMessageToDiscord(embed);
+  }
+
+  sendMessageToDiscord(embed: EmbedBuilder) {
+    if (this.configService.get('NODE_ENV') === 'development') {
+      return this.client.api.channels.createMessage(
+        this.configService.get<string>('DISCORD_DEV_CHANNEL_ID') as string,
+        { embeds: [embed.toJSON()] }
+      );
+    }
   }
 }
