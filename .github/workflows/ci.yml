@@ -43,5 +43,6 @@ jobs:
           path: coverage
       - uses: codecov/codecov-action@v3
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           flags: monolith
           directory: coverage/packages/monolith
